@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIM JIWOO | Personal Website</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --navy: #263f59;
+  --blue: #779dbf;
+  --light-blue: #eaf2f8;
+  --pale: #f7f9fb;
+  --text: #354453;
+  --muted: #8493a1;
+  --line: #e3eaf0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1080px, 88%);
+  margin: auto;
+}
+
+/* Navigation */
+header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.94);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(1080px, 88%);
+  margin: auto;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--navy);
+}
+
+.nav-links {
+  display: flex;
+  gap: 27px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+/* Hero */
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background: var(--pale);
+  padding: 100px 0;
+}
+
+.hero-inner {
+  max-width: 1080px;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 23px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  color: var(--navy);
+  line-height: 1.16;
+  letter-spacing: -2px;
+  margin-bottom: 23px;
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--navy);
+  color: white;
+  font-size: 13px;
+  transition: .25s;
+}
+
+.hero-button:hover {
+  background: var(--blue);
+  transform: translateY(-3px);
+}
+
+/* Common sections */
+section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  margin-bottom: 48px;
+}
+
+.section-number {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 34px;
+  margin-top: 8px;
+  letter-spacing: -1px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Profile */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.profile-intro h3 {
+  color: var(--navy);
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.profile-intro p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.profile-table {
+  border-top: 1px solid var(--line);
+}
+
+.profile-row {
+  display: flex;
+  padding: 15px 5px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.profile-row strong {
+  width: 115px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.profile-row span {
+  color: var(--muted);
+}
+
+/* Major */
+.major {
+  background: var(--light-blue);
+}
+
+.major-card {
+  background: white;
+  padding: 40px;
+  border-left: 3px solid var(--blue);
+}
+
+.major-card h3 {
+  font-size: 23px;
+  color: var(--navy);
+  margin-bottom: 15px;
+}
+
+.major-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* Favorites */
+.favorite-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.favorite-card {
+  padding: 30px 25px;
+  border: 1px solid var(--line);
+  min-height: 190px;
+  transition: .3s;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+}
+
+.favorite-card .label {
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.favorite-card h3 {
+  color: var(--navy);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.favorite-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.favorite-card .hashtag {
+  display: block;
+  margin-top: 10px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Dog */
+.dog-section {
+  background: var(--pale);
+}
+
+.dog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.dog-photo {
+  height: 380px;
+  background: #dce9f3;
+  overflow: hidden;
+}
+
+.dog-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dog-info h3 {
+  font-size: 32px;
+  color: var(--navy);
+  margin: 10px 0;
+}
+
+.dog-info p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.dog-info .dog-label {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* Closing */
+.closing {
+  text-align: center;
+  padding: 110px 20px;
+}
+
+.closing h2 {
+  color: var(--navy);
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.closing p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  padding: 27px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media(max-width: 700px) {
+  .nav-links {
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .profile-grid,
+  .dog-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding: 75px 0;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+
+  .favorite-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading h2 {
+    font-size: 29px;
+  }
+
+  .dog-photo {
+    height: 300px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="#" class="logo">KIM JIWOO.</a>
+    <div class="nav-links">
+      <a href="#profile">PROFILE</a>
+      <a href="#major">MAJOR</a>
+      <a href="#favorites">FAVORITES</a>
+      <a href="#dog">GUREUM</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- MAIN -->
+  <section class="hero">
+    <div class="container hero-inner">
+
+      <div class="eyebrow">WELCOME TO MY PERSONAL WEBSITE</div>
+
+      <h1>
+        Hello,<br>
+        I'm <span>Jiwoo.</span>
+      </h1>
+
+      <p class="hero-description">
+        김지우의 일상과 좋아하는 것들을 담은<br>
+        작은 개인 공간입니다.
+      </p>
+
+      <a href="#profile" class="hero-button">
+        EXPLORE MORE →
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-number">01 / ABOUT ME</div>
+        <h2>Profile</h2>
+        <p>나를 소개합니다.</p>
+      </div>
+
+      <div class="profile-grid">
+
+        <div class="profile-intro">
+          <h3>Nice to meet you.</h3>
+          <p>
+            안녕하세요, 김지우입니다.<br>
+            현재 건양대학교 방사선학과에서 공부하고 있습니다.
+            제가 좋아하는 것들과 저에 대한 정보를
+            이 공간에 하나씩 담아보았습니다.
+          </p>
+        </div>
+
+        <div class="profile-table">
+          <div class="profile-row">
+            <strong>NAME</strong>
+            <span>김지우 (KIM JIWOO)</span>
+          </div>
+          <div class="profile-row">
+            <strong>BIRTHDAY</strong>
+            <span>2006. 08. 05</span>
+          </div>
+          <div class="profile-row">
+            <strong>UNIVERSITY</strong>
+            <span>건양대학교</span>
+          </div>
+          <div class="profile-row">
+            <strong>MAJOR</strong>
+            <span>방사선학과</span>
+          </div>
+          <div class="profile-row">
+            <strong>GRADE</strong>
+            <span>2학년</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAJOR -->
+  <section class="major" id="major">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-number">02 / MY STUDY</div>
+        <h2>My Major</h2>
+        <p>현재 배우고 있는 전공</p>
+      </div>
+
+      <div class="major-card">
+        <h3>Radiological Science</h3>
+        <p>
+          건양대학교 방사선학과에서 방사선과 영상에 관한
+          전공 지식을 배우고 있습니다.
+          앞으로도 전공 공부를 이어가며
+          다양한 분야를 경험하고 싶습니다.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAVORITES -->
+  <section id="favorites">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-number">03 / MY FAVORITES</div>
+        <h2>Things I Love</h2>
+        <p>내가 좋아하는 것들</p>
+      </div>
+
+      <div class="favorite-grid">
+
+        <div class="favorite-card">
+          <div class="label">HOBBY</div>
+          <h3>Baseball</h3>
+          <p>야구 보는 것을 좋아합니다.</p>
+        </div>
+
+        <div class="favorite-card">
+          <div class="label">MY TEAM</div>
+          <h3>Doosan Bears</h3>
+          <p>응원하는 팀은 두산 베어스입니다.</p>
+        </div>
+
+        <div class="favorite-card">
+          <div class="label">COLOR</div>
+          <h3>Navy Blue</h3>
+          <p>좋아하는 색은 남색입니다.</p>
+        </div>
+
+        <div class="favorite-card">
+          <div class="label">DESSERT</div>
+          <h3>Strawberry Cake</h3>
+          <p>딸기 케이크를 좋아합니다.</p>
+          <span class="hashtag">#205키친이정말맛있습니다</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DOG -->
+  <section class="dog-section" id="dog">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-number">04 / MY LITTLE FRIEND</div>
+        <h2>My Gureum</h2>
+        <p>우리 집 소중한 가족</p>
+      </div>
+
+      <div class="dog-grid">
+
+        <div class="dog-photo">
+          <img src="image(1).png" alt="구름이 사진">
+        </div>
+
+        <div class="dog-info">
+          <div class="dog-label">MY LOVELY DOG</div>
+          <h3>구름이</h3>
+          <p>
+            저와 함께하는 소중한 반려견입니다.<br>
+            견종은 말티즈입니다.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- END -->
+  <section class="closing">
+    <div class="eyebrow">THANK YOU FOR VISITING</div>
+    <h2>That's all about me.</h2>
+    <p>지금까지 김지우의 홈페이지였습니다.</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 KIM JIWOO. ALL RIGHTS RESERVED.
+</footer>
+
+</body>
+</html>
